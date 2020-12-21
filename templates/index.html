@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <title>Weather-App</title>
+    </head>
+    <style>
+        .jumbotron{
+            padding: 1rem 3rem;
+            margin-bottom: 2rem;
+            background-color: #9d72d6;
+            border-radius: 0.3rem;
+        }
+        .head-text{
+            font-size:50px;
+            font-family: 'Lobster', cursive;
+            color:white;
+        }
+        body{
+            background-color:cornsilk
+        }
+        .input{
+            position: absolute;
+            top:300px;
+            left:600px;
+        }
+        .box{
+            padding:1rem 3rem;
+            box-shadow: 2px 2px #888888;
+            margin-bottom: 2rem;
+            height:100px;
+            width: 200px;
+            background-color:#e7e2ee;
+            border-radius: 0.3em;
+            position:absolute;
+            top:400px;
+            left:570px;
+        }
+        .city{
+            font-size:20px;
+            padding:0px 0px 0px 0px;
+            color: black;
+        }
+        .temperature{
+            font-size:15px;
+            margin:0px auto;
+            padding:0px 10px;
+            color: rgb(189, 38, 38);
+        }
+        .descp{
+            font-size:15px;
+            padding:0px 10px;
+            color: rgb(236, 28, 28);
+        }
+        .icon{
+            z-index:1;
+            position:absolute;
+            top:50px;
+            left:5px;
+        }
+    </style>
+    <body>
+        <header class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="head-text">
+                        <p>Weather App</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </header>
+        <form class="input" action = "/" method = "POST" enctype = "multipart/form-data"><p>Enter Name of City</p>
+        <input type = "text" name = "text" required="required"/>
+        <input type = "submit">
+        </form>
+        <div class="output">
+            <div class="box">
+                <div class="icon"><img src="https://openweathermap.org/img/w/{{weather.icon}}.png" onerror="this.style.display='none'"></div>
+                <p class="city">City:  {{ weather.city }}</p>
+                <div class="temperature">{{ weather.temperature }}  F</div>
+                <div class="descp">{{ weather.description }}</div>
+            </div>
+        </div>
+    </body>
+</html>
